@@ -1,0 +1,24 @@
+.div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.text {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.input {
+  border: none;
+  border: 1px solid lightcoral;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  max-width: 200px;
+}
+
+.icon {
+  margin-right: 5px;
+}
