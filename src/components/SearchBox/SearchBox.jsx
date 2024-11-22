@@ -1,6 +1,13 @@
+import { useDispatch, useSelector } from "react-redux";
 import s from "./SearchBox.module.css";
 import { MdOutlinePersonSearch } from "react-icons/md";
-const SearchBox = ({ onChange }) => {
+import { setNameFilter } from "../../redux/filtersSlice";
+const SearchBox = () => {
+  const dispatch = useDispatch();
+  const name = useSelector((state) => state.filters.name);
+
+  const handleSearchChange = (e) => dispatch(setNameFilter(e.target.value));
+
   return (
     <>
       <div className={s.div}>
@@ -8,7 +15,7 @@ const SearchBox = ({ onChange }) => {
           <MdOutlinePersonSearch className={s.icon} />
           Find contacts by name
         </p>
-        <input className={s.input} type="text" onChange={onChange} />
+        <input className={s.input} type="text" onChange={handleSearchChange} />
       </div>
     </>
   );
