@@ -20,12 +20,12 @@ const ContactForm = () => {
     name: yup
       .string()
       .min(3, "Too Short!")
-      .max(50, "So Long!")
+      .max(30, "So Long!")
       .required("Please,enter your name!"),
     number: yup
       .string()
       .min(3, "Too Short!")
-      .max(50, "So Long!")
+      .max(15, "So Long!")
       .required("Please,enter your phone number!"),
   });
 

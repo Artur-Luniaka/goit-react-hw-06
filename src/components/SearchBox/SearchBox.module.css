@@ -1,6 +1,5 @@
 .div {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 5px;
   flex-direction: column;
@@ -16,7 +15,12 @@
   border-radius: 10px;
   padding: 5px 10px;
   margin-bottom: 10px;
-  max-width: 200px;
+  width: 260px;
+  transition: scale 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: 4px 4px 8px 0px rgba(255, 127, 80, 0.3);
+  &:hover {
+    scale: 102%;
+  }
 }
 
 .icon {
