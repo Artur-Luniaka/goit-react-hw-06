@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import s from "./SearchBox.module.css";
 import { MdOutlinePersonSearch } from "react-icons/md";
 import { setNameFilter } from "../../redux/filtersSlice";
+
 const SearchBox = () => {
   const dispatch = useDispatch();
-  const name = useSelector((state) => state.filters.name);
 
   const handleSearchChange = (e) => dispatch(setNameFilter(e.target.value));
 

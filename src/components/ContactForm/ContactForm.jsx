@@ -3,8 +3,12 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { useId } from "react";
 import { PiUserPlusFill } from "react-icons/pi";
+import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/contactsSlice";
+import { nanoid } from "nanoid";
 
-const ContactForm = ({ onSubmit }) => {
+const ContactForm = () => {
+  const dispatch = useDispatch();
   const initialValues = {
     name: "",
     number: "",
@@ -24,10 +28,17 @@ const ContactForm = ({ onSubmit }) => {
       .max(50, "So Long!")
       .required("Please,enter your phone number!"),
   });
+
+  const addNewContact = (values, actions) => {
+    const newContact = { ...values, id: nanoid() };
+    dispatch(addContact(newContact));
+    actions.resetForm();
+  };
+
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values, actions) => onSubmit(values, actions)}
+      onSubmit={addNewContact}
       validationSchema={validationForm}
     >
       <Form className={s.form}>
